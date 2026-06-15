@@ -1,0 +1,198 @@
+:host {
+  display: block;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+/* ── Hero ─────────────────────────────────────── */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.hero-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.hero-title {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* ── Bio ──────────────────────────────────────── */
+.bio {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bio p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ── Secciones ────────────────────────────────── */
+section {
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Timeline (Experiencia) ───────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.5rem;
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  padding-top: 0.2rem;
+  text-align: right;
+}
+
+.timeline-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.company {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.timeline-content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.timeline-content li {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.timeline-content li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ── Educación ────────────────────────────────── */
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.edu-item h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.edu-school {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
+
+.edu-date {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 0.15rem;
+}
+
+.edu-note {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 0.2rem;
+}
+
+/* ── Logros ───────────────────────────────────── */
+.logros ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.logros li {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.7;
+}
+
+.logros li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 600px) {
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-date {
+    text-align: left;
+  }
+
+  .edu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+}
