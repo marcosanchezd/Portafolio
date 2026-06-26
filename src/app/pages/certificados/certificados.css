@@ -1,0 +1,39 @@
+:host { display: block; }
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.cert-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+
+.cert-img {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+}
+
+.cert-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.cert-body h2 { font-size: 0.95rem; font-weight: 700; }
+
+.cert-inst, .cert-fecha {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cert-inst i, .cert-fecha i { color: var(--color-accent); }
+
+.btn-sm { padding: 0.4rem 0.9rem; font-size: 0.8rem; margin-top: 0.5rem; }

@@ -1,6 +1,55 @@
-<nav>
-  <a routerLink="/">Home</a>
-  <a routerLink="/contact">Contacto</a>
-</nav>
+<header class="navbar">
+  <div class="navbar-inner">
+    <a routerLink="/" class="navbar-brand">MS<span>.</span></a>
 
-<router-outlet />
+    <button class="menu-toggle" (click)="menuOpen = !menuOpen" aria-label="Menú">
+      <i class="fa-solid" [class.fa-bars]="!menuOpen" [class.fa-xmark]="menuOpen"></i>
+    </button>
+
+    <nav class="navbar-links" [class.open]="menuOpen" (click)="menuOpen = false">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <i class="fa-solid fa-house"></i> Inicio
+      </a>
+      <a routerLink="/about" routerLinkActive="active">
+        <i class="fa-solid fa-user"></i> Sobre mí
+      </a>
+      <a routerLink="/materias" routerLinkActive="active">
+        <i class="fa-solid fa-book"></i> Materias
+      </a>
+      <a routerLink="/proyectos" routerLinkActive="active">
+        <i class="fa-solid fa-code"></i> Proyectos
+      </a>
+      <a routerLink="/habilidades" routerLinkActive="active">
+        <i class="fa-solid fa-star"></i> Habilidades
+      </a>
+      <a routerLink="/certificados" routerLinkActive="active">
+        <i class="fa-solid fa-trophy"></i> Certificados
+      </a>
+      <a routerLink="/curriculum" routerLinkActive="active">
+        <i class="fa-solid fa-file-lines"></i> CV
+      </a>
+      <a routerLink="/contact" routerLinkActive="active" class="nav-cta">
+        <i class="fa-solid fa-envelope"></i> Contacto
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <router-outlet />
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="#" class="footer-brand">MS<span>.</span></a>
+    <p class="footer-copy">&copy; 2026 Marco Sánchez. Todos los derechos reservados.</p>
+    <div class="footer-social">
+      <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+    <a href="#" class="footer-top" aria-label="Volver arriba">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+  </div>
+</footer>

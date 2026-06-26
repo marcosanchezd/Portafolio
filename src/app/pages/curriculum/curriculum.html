@@ -1,0 +1,59 @@
+<div class="page-wrapper">
+  <span class="section-label"><i class="fa-solid fa-file-lines"></i> Currículum</span>
+  <h1 class="section-title">Currículum Vitae</h1>
+  <p class="section-subtitle">Resumen profesional y trayectoria académica.</p>
+
+  <div class="cv-layout">
+    <div class="cv-actions card">
+      <div class="cv-avatar">MS</div>
+      <h2>Marco Antonio Sánchez</h2>
+      <p>Gestión Estratégica de TI · Transformación Digital · Eficiencia Operativa</p>
+      <div class="cv-contact">
+        <span><i class="fa-solid fa-envelope"></i> marcosanchezd&#64;gmail.com</span>
+        <span><i class="fa-solid fa-phone"></i> 477 4673522</span>
+        <span><i class="fa-brands fa-linkedin"></i> linkedin.com/in/marcosanchezd</span>
+      </div>
+      <button class="btn btn-primary">
+        <i class="fa-solid fa-download"></i> Descargar CV
+      </button>
+    </div>
+
+    <div class="cv-preview">
+      <div class="cv-section card">
+        <h3><i class="fa-solid fa-briefcase"></i> Experiencia</h3>
+        @for (e of experiencia; track e.cargo) {
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <strong>{{ e.cargo }}</strong>
+              <span class="cv-date">{{ e.periodo }}</span>
+            </div>
+            <span class="cv-company">{{ e.empresa }}</span>
+            <p>{{ e.descripcion }}</p>
+          </div>
+        }
+      </div>
+
+      <div class="cv-section card">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Formación</h3>
+        @for (f of formacion; track f.titulo) {
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <strong>{{ f.titulo }}</strong>
+              <span class="cv-date">{{ f.periodo }}</span>
+            </div>
+            <span class="cv-company">{{ f.institucion }}</span>
+          </div>
+        }
+      </div>
+
+      <div class="cv-section card">
+        <h3><i class="fa-solid fa-trophy"></i> Logros</h3>
+        <ul class="cv-logros">
+          @for (l of logros; track l) {
+            <li><i class="fa-solid fa-arrow-right"></i> {{ l }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

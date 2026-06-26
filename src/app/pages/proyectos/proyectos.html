@@ -1,0 +1,30 @@
+<div class="page-wrapper">
+  <span class="section-label"><i class="fa-solid fa-code"></i> Proyectos</span>
+  <h1 class="section-title">Proyectos</h1>
+  <p class="section-subtitle">Soluciones tecnológicas desarrolladas a lo largo de mi carrera profesional.</p>
+
+  <div class="proyectos-grid">
+    @for (p of proyectos; track p.nombre) {
+      <div class="proyecto-card card">
+        <div class="proyecto-img" [style.background]="p.color + '18'">
+          <i class="fa-solid {{ p.icon }}" [style.color]="p.color"></i>
+        </div>
+        <div class="proyecto-body">
+          <div class="proyecto-header">
+            <h2>{{ p.nombre }}</h2>
+            <span class="status status-{{ p.estadoColor }}">{{ p.estado }}</span>
+          </div>
+          <p>{{ p.descripcion }}</p>
+          <div class="tech-stack">
+            @for (t of p.tecnologias; track t) {
+              <span class="badge">{{ t }}</span>
+            }
+          </div>
+          <button class="btn btn-outline btn-sm">
+            <i class="fa-solid fa-eye"></i> Ver más
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

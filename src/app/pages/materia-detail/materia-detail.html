@@ -1,0 +1,134 @@
+<div class="page-wrapper">
+  <a routerLink="/materias" class="back-link">
+    <i class="fa-solid fa-arrow-left"></i> Volver a Materias
+  </a>
+
+  <span class="section-label"><i class="fa-solid fa-book"></i> Materia</span>
+  <h1 class="section-title">{{ nombre }}</h1>
+
+  <div class="tabs-bar">
+    @for (tab of tabs; track tab.id) {
+      <button class="tab-btn" [class.active]="activeTab === tab.id" (click)="activeTab = tab.id">
+        <i class="fa-solid {{ tab.icon }}"></i>
+        <span>{{ tab.label }}</span>
+      </button>
+    }
+  </div>
+
+  <div class="tab-content card">
+    @if (activeTab === 'descripcion') {
+      <h2><i class="fa-solid fa-circle-info"></i> Descripción</h2>
+      <p>Esta materia aborda los fundamentos y conceptos avanzados de la disciplina, con enfoque en aplicaciones prácticas y casos de estudio del mundo real. El objetivo es que el estudiante desarrolle competencias técnicas y analíticas sólidas.</p>
+      <p>A lo largo del curso se cubren los temas principales del área, con actividades que refuerzan el aprendizaje teórico mediante ejercicios y proyectos.</p>
+      <div class="info-chips">
+        <span class="badge"><i class="fa-solid fa-clock"></i> 4 créditos</span>
+        <span class="badge"><i class="fa-solid fa-calendar"></i> Semestre 2026-1</span>
+        <span class="badge"><i class="fa-solid fa-user"></i> Dr. Nombre Apellido</span>
+      </div>
+    }
+
+    @if (activeTab === 'apuntes') {
+      <h2><i class="fa-solid fa-note-sticky"></i> Apuntes</h2>
+      <div class="file-list">
+        @for (item of ['Unidad 1 - Introducción', 'Unidad 2 - Conceptos fundamentales', 'Unidad 3 - Aplicaciones', 'Unidad 4 - Casos de estudio']; track item) {
+          <div class="file-item">
+            <i class="fa-solid fa-file-lines"></i>
+            <span>{{ item }}</span>
+            <button class="btn btn-outline btn-sm"><i class="fa-solid fa-eye"></i> Ver</button>
+          </div>
+        }
+      </div>
+    }
+
+    @if (activeTab === 'presentaciones') {
+      <h2><i class="fa-solid fa-file-powerpoint"></i> Presentaciones</h2>
+      <div class="file-list">
+        @for (item of ['Clase 01 - Presentación del curso', 'Clase 05 - Tema central', 'Clase 10 - Revisión parcial', 'Clase 15 - Proyecto final']; track item) {
+          <div class="file-item">
+            <i class="fa-solid fa-file-powerpoint" style="color:#ea580c"></i>
+            <span>{{ item }}</span>
+            <button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Descargar</button>
+          </div>
+        }
+      </div>
+    }
+
+    @if (activeTab === 'tareas') {
+      <h2><i class="fa-solid fa-list-check"></i> Tareas</h2>
+      <div class="task-list">
+        @for (t of [{n:'Tarea 1',d:'Ejercicios introductorios',e:'Entregada',c:'success'},{n:'Tarea 2',d:'Investigación bibliográfica',e:'Entregada',c:'success'},{n:'Tarea 3',d:'Práctica integradora',e:'Pendiente',c:'warning'},{n:'Tarea 4',d:'Proyecto final',e:'Próximamente',c:'info'}]; track t.n) {
+          <div class="task-item card">
+            <div>
+              <h3>{{ t.n }}</h3>
+              <p>{{ t.d }}</p>
+            </div>
+            <span class="status status-{{ t.c }}">{{ t.e }}</span>
+          </div>
+        }
+      </div>
+    }
+
+    @if (activeTab === 'practicas') {
+      <h2><i class="fa-solid fa-flask"></i> Prácticas</h2>
+      <div class="file-list">
+        @for (item of ['Práctica 1 - Configuración del entorno', 'Práctica 2 - Ejercicio básico', 'Práctica 3 - Ejercicio intermedio', 'Práctica 4 - Ejercicio avanzado']; track item) {
+          <div class="file-item">
+            <i class="fa-solid fa-flask" style="color:#9333ea"></i>
+            <span>{{ item }}</span>
+            <button class="btn btn-outline btn-sm"><i class="fa-solid fa-eye"></i> Ver</button>
+          </div>
+        }
+      </div>
+    }
+
+    @if (activeTab === 'recursos') {
+      <h2><i class="fa-solid fa-link"></i> Recursos</h2>
+      <div class="resource-list">
+        @for (r of [{n:'Documentación oficial',u:'#',i:'fa-book'},{n:'Repositorio del curso',u:'#',i:'fa-code-branch'},{n:'Foro de dudas',u:'#',i:'fa-comments'},{n:'Plataforma de práctica',u:'#',i:'fa-laptop-code'}]; track r.n) {
+          <a [href]="r.u" class="resource-item card">
+            <i class="fa-solid {{ r.i }}"></i>
+            <span>{{ r.n }}</span>
+            <i class="fa-solid fa-external-link arrow"></i>
+          </a>
+        }
+      </div>
+    }
+
+    @if (activeTab === 'videos') {
+      <h2><i class="fa-solid fa-video"></i> Videos recomendados</h2>
+      <div class="video-list">
+        @for (v of [{t:'Introducción al tema',d:'15 min'},{t:'Tutorial paso a paso',d:'32 min'},{t:'Caso práctico real',d:'45 min'},{t:'Resumen y conclusiones',d:'20 min'}]; track v.t) {
+          <div class="video-item card">
+            <div class="video-thumb"><i class="fa-solid fa-play"></i></div>
+            <div>
+              <h3>{{ v.t }}</h3>
+              <span><i class="fa-solid fa-clock"></i> {{ v.d }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    @if (activeTab === 'bibliografia') {
+      <h2><i class="fa-solid fa-book-open"></i> Bibliografía</h2>
+      <div class="bib-list">
+        @for (b of ['Autor A. (2023). Título del libro principal. Editorial Ejemplo.','Autor B. (2022). Fundamentos de la materia. Editorial Técnica.','Autor C. (2021). Aplicaciones avanzadas. McGraw-Hill.','Autor D. (2020). Casos de estudio. Pearson.']; track b) {
+          <div class="bib-item"><i class="fa-solid fa-book"></i><p>{{ b }}</p></div>
+        }
+      </div>
+    }
+
+    @if (activeTab === 'descargas') {
+      <h2><i class="fa-solid fa-download"></i> Descargas</h2>
+      <div class="file-list">
+        @for (f of [{n:'Syllabus del curso',s:'PDF · 120 KB'},{n:'Material completo Unidad 1',s:'ZIP · 4.2 MB'},{n:'Ejercicios resueltos',s:'PDF · 890 KB'},{n:'Plantillas de proyecto',s:'ZIP · 1.1 MB'}]; track f.n) {
+          <div class="file-item">
+            <i class="fa-solid fa-file-zipper" style="color:#16a34a"></i>
+            <div><span>{{ f.n }}</span><small>{{ f.s }}</small></div>
+            <button class="btn btn-primary btn-sm"><i class="fa-solid fa-download"></i> Descargar</button>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

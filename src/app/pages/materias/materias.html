@@ -1,0 +1,18 @@
+<div class="page-wrapper">
+  <span class="section-label"><i class="fa-solid fa-book"></i> Materias</span>
+  <h1 class="section-title">Materias</h1>
+  <p class="section-subtitle">Explora el contenido de cada materia: apuntes, tareas, proyectos y recursos.</p>
+
+  <div class="materias-grid">
+    @for (m of materias; track m.id) {
+      <a [routerLink]="['/materias', m.id]" class="materia-card card">
+        <div class="materia-icon" [style.background]="m.color + '18'" [style.color]="m.color">
+          <i class="fa-solid {{ m.icon }}"></i>
+        </div>
+        <h2>{{ m.nombre }}</h2>
+        <p>{{ m.descripcion }}</p>
+        <span class="materia-link">Ver contenido <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    }
+  </div>
+</div>

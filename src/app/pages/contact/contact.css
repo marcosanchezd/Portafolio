@@ -1,32 +1,60 @@
-:host {
-  display: block;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 3rem 2rem 5rem;
+:host { display: block; }
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  align-items: start;
 }
 
-.contact-page h2 {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+.info-card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.info-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: #eff6ff;
   color: var(--color-accent);
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
-.contact-intro {
-  font-size: 0.9rem;
+.info-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--color-text-muted);
-  margin-bottom: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.info-value {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 /* ── Formulario ───────────────────────────────── */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  max-width: 560px;
+  gap: 1.25rem;
 }
 
 .form-group {
@@ -37,73 +65,48 @@
 
 label {
   font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-weight: 600;
   color: var(--color-text-muted);
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-input,
-textarea {
+label i { color: var(--color-accent); }
+
+input, textarea {
   width: 100%;
   padding: 0.7rem 0.9rem;
   font-family: var(--font);
   font-size: 0.9rem;
   color: var(--color-text);
-  background-color: var(--color-surface);
+  background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color var(--transition), background var(--transition);
   resize: vertical;
 }
 
-input:focus,
-textarea:focus {
+input:focus, textarea:focus {
   border-color: var(--color-accent);
+  background: #fff;
 }
 
-/* ── Botón ────────────────────────────────────── */
-button[type="submit"] {
-  align-self: flex-start;
-  padding: 0.7rem 1.8rem;
-  font-family: var(--font);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #ffffff;
-  background-color: var(--color-accent);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
+button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
 
-button[type="submit"]:hover {
-  opacity: 0.85;
-}
-
-button[type="submit"]:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* ── Mensajes de feedback ─────────────────────── */
 .form-feedback {
   font-size: 0.875rem;
-  padding: 0.6rem 0.9rem;
-  border-radius: 4px;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.form-feedback.success {
-  background-color: #f0faf0;
-  color: #2d6a2d;
-  border: 1px solid #b8ddb8;
-}
+.form-feedback.success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.form-feedback.error   { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
 
-.form-feedback.error {
-  background-color: #fdf0f0;
-  color: #7a2020;
-  border: 1px solid #ddb8b8;
+@media (max-width: 768px) {
+  .contact-layout { grid-template-columns: 1fr; }
 }

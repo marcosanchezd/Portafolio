@@ -1,0 +1,25 @@
+<div class="page-wrapper">
+  <span class="section-label"><i class="fa-solid fa-star"></i> Habilidades</span>
+  <h1 class="section-title">Habilidades técnicas</h1>
+  <p class="section-subtitle">Tecnologías y herramientas con las que trabajo cotidianamente.</p>
+
+  @for (cat of categorias; track cat) {
+    <div class="categoria-group">
+      <h2 class="cat-title">{{ cat }}</h2>
+      <div class="skills-grid">
+        @for (h of porCategoria(cat); track h.nombre) {
+          <div class="skill-card card">
+            <div class="skill-header">
+              <div class="skill-icon"><i class="fa-solid {{ h.icon }}"></i></div>
+              <span class="skill-nombre">{{ h.nombre }}</span>
+              <span class="skill-nivel">{{ h.nivel }}%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" [style.width]="h.nivel + '%'"></div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,23 @@
+<div class="page-wrapper">
+  <span class="section-label"><i class="fa-solid fa-trophy"></i> Certificados</span>
+  <h1 class="section-title">Certificados</h1>
+  <p class="section-subtitle">Formación continua y certificaciones obtenidas a lo largo de mi carrera.</p>
+
+  <div class="cert-grid">
+    @for (c of certificados; track c.nombre) {
+      <div class="cert-card card">
+        <div class="cert-img" [style.background]="c.color + '18'">
+          <i class="fa-solid {{ c.icon }}" [style.color]="c.color"></i>
+        </div>
+        <div class="cert-body">
+          <h2>{{ c.nombre }}</h2>
+          <span class="cert-inst"><i class="fa-solid fa-building-columns"></i> {{ c.institucion }}</span>
+          <span class="cert-fecha"><i class="fa-solid fa-calendar"></i> {{ c.fecha }}</span>
+          <button class="btn btn-outline btn-sm">
+            <i class="fa-solid fa-eye"></i> Visualizar
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
